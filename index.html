@@ -112,20 +112,20 @@
     <nav>
       <ul class="nav-list">
         <li>
-          <a class="nav-link" href="#" data-page="heritage">非遺項目</a>
+          <a class="nav-link" href="#heritage" data-page="heritage">非遺項目</a>
           <ul class="sub-list" style="display:none;" data-parent="heritage">
-            <li><a class="sub-link" href="#" data-subpage="lingnan">嶺南文化</a></li>
-            <li><a class="sub-link" href="#" data-subpage="greatwall">長城</a></li>
-            <li><a class="sub-link" href="#" data-subpage="beijingaxis">首都北京中軸線</a></li>
-            <li><a class="sub-link" href="#" data-subpage="woodenbridge">木拱橋傳統營造技藝</a></li>
-            <li><a class="sub-link" href="#" data-subpage="acupuncture">針灸</a></li>
-            <li><a class="sub-link" href="#" data-subpage="cantonopera">粵劇</a></li>
+            <li><a class="sub-link" href="#heritage/lingnan" data-subpage="lingnan">嶺南文化</a></li>
+            <li><a class="sub-link" href="#heritage/greatwall" data-subpage="greatwall">長城</a></li>
+            <li><a class="sub-link" href="#heritage/beijingaxis" data-subpage="beijingaxis">首都北京中軸線</a></li>
+            <li><a class="sub-link" href="#heritage/woodenbridge" data-subpage="woodenbridge">木拱橋傳統營造技藝</a></li>
+            <li><a class="sub-link" href="#heritage/acupuncture" data-subpage="acupuncture">針灸</a></li>
+            <li><a class="sub-link" href="#heritage/cantonopera" data-subpage="cantonopera">粵劇</a></li>
           </ul>
         </li>
-        <li><a class="nav-link" href="#" data-page="geography">地勢特徵</a></li>
-        <li><a class="nav-link" href="#" data-page="sights">名勝地點</a></li>
-        <li><a class="nav-link" href="#" data-page="bayarea">大灣區發展</a></li>
-        <li><a class="nav-link" href="#" data-page="ancients">古人</a></li>
+        <li><a class="nav-link" href="#geography" data-page="geography">地勢特徵</a></li>
+        <li><a class="nav-link" href="#sights" data-page="sights">名勝地點</a></li>
+        <li><a class="nav-link" href="#bayarea" data-page="bayarea">大灣區發展</a></li>
+        <li><a class="nav-link" href="#ancients" data-page="ancients">古人</a></li>
       </ul>
     </nav>
     <section class="content" id="main-content">
@@ -236,27 +236,77 @@
       }
     };
 
+    // 根據URL hash加載內容
+    function loadContentFromHash() {
+      const hash = window.location.hash.substring(1); // 去掉#號
+      
+      if (!hash) {
+        // 如果沒有hash，顯示首頁
+        document.getElementById('main-content').innerHTML = `
+          <h2>歡迎來到中國地理文化網站</h2>
+          <p>請從左側選單選擇主題，探索中國豐富的地理與文化！</p>
+        `;
+        resetActiveStates();
+        return;
+      }
+      
+      // 解析hash，格式可能是 "heritage" 或 "heritage/lingnan"
+      const parts = hash.split('/');
+      const mainPage = parts[0];
+      const subPage = parts[1];
+      
+      // 重置所有active狀態
+      resetActiveStates();
+      
+      if (contentData[mainPage]) {
+        if (subPage && contentData[mainPage][subPage]) {
+          // 加載子頁面內容
+          const data = contentData[mainPage][subPage];
+          document.getElementById('main-content').innerHTML = `
+            <h2>${data.title}</h2>
+            ${data.html}
+          `;
+          
+          // 設置active狀態
+          document.querySelector(`.nav-link[data-page="${mainPage}"]`).classList.add('active');
+          document.querySelector(`.sub-list[data-parent="${mainPage}"]`).style.display = 'block';
+          document.querySelector(`.sub-link[data-subpage="${subPage}"]`).classList.add('active');
+        } else {
+          // 加載主頁面內容
+          const data = contentData[mainPage].main;
+          document.getElementById('main-content').innerHTML = `
+            <h2>${data.title}</h2>
+            ${data.html}
+          `;
+          
+          // 設置active狀態
+          document.querySelector(`.nav-link[data-page="${mainPage}"]`).classList.add('active');
+          if (document.querySelector(`.sub-list[data-parent="${mainPage}"]`)) {
+            document.querySelector(`.sub-list[data-parent="${mainPage}"]`).style.display = 'block';
+          }
+        }
+      } else {
+        // 如果hash對應的頁面不存在，顯示錯誤信息
+        document.getElementById('main-content').innerHTML = `
+          <h2>頁面未找到</h2>
+          <p>抱歉，您訪問的頁面不存在。請從左側選單選擇有效的主題。</p>
+        `;
+      }
+    }
+
+    // 重置所有active狀態
+    function resetActiveStates() {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.sub-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.sub-list').forEach(sub => sub.style.display = 'none');
+    }
+
     // 導航點擊處理
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        // 標記active
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-        // 展開子清單
-        document.querySelectorAll('.sub-list').forEach(sub => sub.style.display = 'none');
-        const page = this.dataset.page;
-        if (document.querySelector(`.sub-list[data-parent="${page}"]`)) {
-          document.querySelector(`.sub-list[data-parent="${page}"]`).style.display = 'block';
-        }
-        // 載入主內容
-        if (contentData[page]) {
-          document.querySelectorAll('.sub-link').forEach(l=>l.classList.remove('active'));
-          document.getElementById('main-content').innerHTML = `
-            <h2>${contentData[page].main.title}</h2>
-            ${contentData[page].main.html}
-          `;
-        }
+        // 更新URL hash
+        window.location.hash = this.getAttribute('href').substring(1);
       });
     });
 
@@ -264,25 +314,22 @@
     document.querySelectorAll('.sub-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelectorAll('.sub-link').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-        const subpage = this.dataset.subpage;
-        // 找到父級
-        let parentLi = this.closest('.sub-list');
-        let parentKey = parentLi.dataset.parent;
-        const data = contentData[parentKey][subpage];
-        if (data) {
-          document.getElementById('main-content').innerHTML = `
-            <h2>${data.title}</h2>
-            ${data.html}
-          `;
-        }
+        // 更新URL hash
+        window.location.hash = this.getAttribute('href').substring(1);
       });
     });
 
-    // 頁面加載時顯示第一主題
+    // 監聽hash變化
+    window.addEventListener('hashchange', loadContentFromHash);
+
+    // 頁面加載時根據hash顯示內容
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.nav-link[data-page="heritage"]').click();
+      if (window.location.hash) {
+        loadContentFromHash();
+      } else {
+        // 如果沒有hash，默認顯示非遺項目
+        window.location.hash = '#heritage';
+      }
     });
   </script>
 </body>

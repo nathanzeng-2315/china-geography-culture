@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中國地理文化</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: #f8f8f8;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    header {
+      background: #2d3e50;
+      color: #fff;
+      padding: 16px 24px;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-align: center;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+    nav {
+      min-width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 0;
+    }
+    .nav-list, .sub-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-list > li {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-link, .sub-link {
+      display: block;
+      padding: 16px 24px;
+      color: #2d3e50;
+      text-decoration: none;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link.active, .nav-link:hover, .sub-link.active, .sub-link:hover {
+      background: #e8f1ff;
+      color: #2358a4;
+      font-weight: bold;
+    }
+    .sub-list {
+      background: #f6f8fa;
+      border-left: 3px solid #2358a4;
+      padding-left: 0;
+    }
+    .sub-link {
+      padding-left: 40px;
+      font-size: 0.98rem;
+    }
+    .content {
+      flex: 1;
+      padding: 32px 24px;
+      background: #f8f8f8;
+      overflow-y: auto;
+      min-width: 0;
+    }
+    .content h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      color: #2358a4;
+    }
+    .content img.placeholder {
+      display: block;
+      width: 320px;
+      max-width: 100%;
+      margin: 24px auto;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      background: #eee;
+      object-fit: cover;
+    }
+    @media (max-width: 700px) {
+      main {
+        flex-direction: column;
+      }
+      nav {
+        min-width: 0;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .content {
+        padding: 16px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>中國地理文化</header>
+  <main>
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a class="nav-link" href="#" data-page="heritage">非遺項目</a>
+          <ul class="sub-list" style="display:none;" data-parent="heritage">
+            <li><a class="sub-link" href="#" data-subpage="lingnan">嶺南文化</a></li>
+            <li><a class="sub-link" href="#" data-subpage="greatwall">長城</a></li>
+            <li><a class="sub-link" href="#" data-subpage="beijingaxis">首都北京中軸線</a></li>
+            <li><a class="sub-link" href="#" data-subpage="woodenbridge">木拱橋傳統營造技藝</a></li>
+            <li><a class="sub-link" href="#" data-subpage="acupuncture">針灸</a></li>
+            <li><a class="sub-link" href="#" data-subpage="cantonopera">粵劇</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="#" data-page="geography">地勢特徵</a></li>
+        <li><a class="nav-link" href="#" data-page="sights">名勝地點</a></li>
+        <li><a class="nav-link" href="#" data-page="bayarea">大灣區發展</a></li>
+        <li><a class="nav-link" href="#" data-page="ancients">古人</a></li>
+      </ul>
+    </nav>
+    <section class="content" id="main-content">
+      <!-- 內容區自動切換 -->
+      <h2>歡迎來到中國地理文化網站</h2>
+      <p>請從左側選單選擇主題，探索中國豐富的地理與文化！</p>
+    </section>
+  </main>
+  <script>
+    // 內容資料
+    const contentData = {
+      heritage: {
+        main: {
+          title: "非遺項目",
+          html: `<p>中國有眾多非物質文化遺產項目，體現了中華民族的智慧與精神傳承。請選擇左側子項目，了解詳細介紹。</p>`
+        },
+        lingnan: {
+          title: "嶺南文化",
+          html: `
+            <p><strong>嶺南涼茶（文化安全）</strong>：</p>
+            <ul>
+              <li><strong>起源地：</strong>嶺南地區（今廣東、廣西一帶）</li>
+              <li><strong>描述：</strong>源於嶺南濕熱氣候，用於清熱祛濕的傳統草本飲品。</li>
+            </ul>
+            <img class="placeholder" src="photo/1.1.jpeg" alt="嶺南涼茶">
+          `
+        },
+        greatwall: {
+          title: "長城",
+          html: `
+            <p><strong>長城（文化安全）</strong>：</p>
+            <ul>
+              <li><strong>起源地：</strong>中國北方（最初由戰國諸侯國如秦、趙、燕等修建防御工事）</li>
+              <li><strong>描述：</strong>古代為抵御遊牧民族侵襲而修建的巨型軍事防御工程體系。</li>
+            </ul>
+            <img class="placeholder" src="photo/1.2.jpeg" alt="長城">
+          `
+        },
+        beijingaxis: {
+          title: "首都北京中軸線",
+          html: `
+            <p><strong>首都北京中軸線（文化安全）</strong>：</p>
+            <ul>
+              <li><strong>起源地：</strong>中國東南部（尤其以浙閩交界山區為代表，如浙江泰順、福建屏南）</li>
+              <li><strong>描述：</strong>運用榫卯結構巧妙編織木拱，無需釘子建造穩固橋梁的傳統技藝。</li>
+            </ul>
+            <img class="placeholder" src="photo/1.3.png" alt="首都北京中軸線">
+          `
+        },
+        woodenbridge: {
+          title: "木拱橋傳統營造技藝",
+          html: `
+            <p><strong>木拱橋傳統營造技藝（文化安全）</strong>：</p>
+            <p>木拱橋是中國一種古老的橋樑樣式，在《清明上河圖》畫卷中間的「汴水虹橋」,建造時用樑木搭接，將長度有限的木材上下交疊編織組成大跨度的無柱拱橋，結構簡單，卻又十分堅固。閩浙木拱廊橋是建在福建、淅江一帶和「汴水虹橋」一樣具有「編木」拱架結構的橋，不同之處就是橋上加蓋廊屋。福建北部、淅江南部，現存百多座木拱廊橋。</p>
+            <p>2009年，中國木拱橋傳統營造技藝列入聯合國教科文組織《急需保護的非物質文化遺產名錄》；2012年，閩浙兩省7縣其中有22座廊橋入選《中國世界文化遺產預備名單》。</p>
+            <img class="placeholder" src="photo/1.4.png" alt="木拱橋傳統營造技藝">
+          `
+        },
+        acupuncture: {
+          title: "針灸",
+          html: `
+            <p><strong>針灸（文化安全）</strong>：</p>
+            <p>針灸是中醫的一種重要療法，為「針法」與「灸法」的統稱，透過針刺人體穴位或艾草燃燒的熱力刺激，以疏通經絡、調和氣血，進而治療疾病、促進健康。</p>
+            <p><strong>針灸的原理與方法</strong></p>
+            <ul>
+              <li><strong>針法：</strong>利用細長的針具刺入人體特定穴位，再透過捻轉、提插等手法刺激穴位。</li>
+              <li><strong>灸法：</strong>利用艾草或其他材料製成的灸炷或艾條，在穴位上進行燃燒或熏熨，產生熱刺激。</li>
+            </ul>
+            <p>傳說神農氏「嘗百藥而制九針」，即華夏民族最早的針灸。到了宋代，著名針灸學家王惟一編撰了《銅人腧穴針灸圖經》，考證了354個穴位，促進了針灸學術的發展。</p>
+            <img class="placeholder" src="photo/1.5.jpeg" alt="針灸">
+          `
+        },
+        cantonopera: {
+          title: "粵劇",
+          html: `
+            <p><strong>粵劇（文化安全）</strong>：</p>
+            <ul>
+              <li><strong>起源地：</strong>廣東省（尤其以廣州、佛山為中心）</li>
+              <li><strong>描述：</strong>流行於粵語地區，唱腔豐富、表演細膩的傳統戲曲藝術。</li>
+            </ul>
+            <img class="placeholder" src="photo/1.6.jpeg" alt="粵劇">
+          `
+        }
+      },
+      geography: {
+        main: {
+          title: "地勢特徵",
+          html: `<p>這裡介紹中國的地形、地勢與自然環境特徵。內容待補充。</p>`
+        }
+      },
+      sights: {
+        main: {
+          title: "名勝地點",
+          html: `<p>這裡介紹中國著名的名勝古蹟與風景名勝區。內容待補充。</p>`
+        }
+      },
+      bayarea: {
+        main: {
+          title: "大灣區發展",
+          html: `<p>介紹粵港澳大灣區的發展現況與前景。內容待補充。</p>`
+        }
+      },
+      ancients: {
+        main: {
+          title: "古人",
+          html: `<p>介紹中國歷史上重要的歷史人物與其貢獻。內容待補充。</p>`
+        }
+      }
+    };
+
+    // 導航點擊處理
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 標記active
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        // 展開子清單
+        document.querySelectorAll('.sub-list').forEach(sub => sub.style.display = 'none');
+        const page = this.dataset.page;
+        if (document.querySelector(`.sub-list[data-parent="${page}"]`)) {
+          document.querySelector(`.sub-list[data-parent="${page}"]`).style.display = 'block';
+        }
+        // 載入主內容
+        if (contentData[page]) {
+          document.querySelectorAll('.sub-link').forEach(l=>l.classList.remove('active'));
+          document.getElementById('main-content').innerHTML = `
+            <h2>${contentData[page].main.title}</h2>
+            ${contentData[page].main.html}
+          `;
+        }
+      });
+    });
+
+    // 子清單點擊
+    document.querySelectorAll('.sub-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sub-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        const subpage = this.dataset.subpage;
+        // 找到父級
+        let parentLi = this.closest('.sub-list');
+        let parentKey = parentLi.dataset.parent;
+        const data = contentData[parentKey][subpage];
+        if (data) {
+          document.getElementById('main-content').innerHTML = `
+            <h2>${data.title}</h2>
+            ${data.html}
+          `;
+        }
+      });
+    });
+
+    // 頁面加載時顯示第一主題
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.nav-link[data-page="heritage"]').click();
+    });
+  </script>
+</body>
+</html>

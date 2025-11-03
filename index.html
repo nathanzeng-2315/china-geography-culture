@@ -38,6 +38,7 @@
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
+      z-index: 1000;
     }
     main {
       flex: 1;
@@ -103,6 +104,11 @@
       border: 1px solid #e0e0e0;
       background: #eee;
       object-fit: cover;
+    }
+    .culture-safe-icon {
+      height: 1.2em;
+      vertical-align: middle;
+      margin-left: 5px;
     }
     .overlay {
       display: none;
@@ -187,7 +193,7 @@
         lingnan: {
           title: "嶺南文化",
           html: `
-            <p><strong>嶺南涼茶</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>嶺南涼茶</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <ul>
               <li><strong>起源地：</strong>嶺南地區（今廣東、廣西一帶）</li>
               <li><strong>描述：</strong>源於嶺南濕熱氣候，用於清熱祛濕的傳統草本飲品。</li>
@@ -198,7 +204,7 @@
         greatwall: {
           title: "長城",
           html: `
-            <p><strong>長城</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>長城</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <ul>
               <li><strong>起源地：</strong>中國北方（最初由戰國諸侯國如秦、趙、燕等修建防御工事）</li>
               <li><strong>描述：</strong>古代為抵御遊牧民族侵襲而修建的巨型軍事防御工程體系。</li>
@@ -209,7 +215,7 @@
         beijingaxis: {
           title: "首都北京中軸線",
           html: `
-            <p><strong>首都北京中軸線</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>首都北京中軸線</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <ul>
               <li><strong>起源地：</strong>中國東南部（尤其以浙閩交界山區為代表，如浙江泰順、福建屏南）</li>
               <li><strong>描述：</strong>運用榫卯結構巧妙編織木拱，無需釘子建造穩固橋梁的傳統技藝。</li>
@@ -220,7 +226,7 @@
         woodenbridge: {
           title: "木拱橋傳統營造技藝",
           html: `
-            <p><strong>木拱橋傳統營造技藝</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>木拱橋傳統營造技藝</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <p>木拱橋是中國一種古老的橋樑樣式，在《清明上河圖》畫卷中間的「汴水虹橋」,建造時用樑木搭接，將長度有限的木材上下交疊編織組成大跨度的無柱拱橋，結構簡單，卻又十分堅固。閩浙木拱廊橋是建在福建、淅江一帶和「汴水虹橋」一樣具有「編木」拱架結構的橋，不同之處就是橋上加蓋廊屋。福建北部、淅江南部，現存百多座木拱廊橋。</p>
             <p>2009年，中國木拱橋傳統營造技藝列入聯合國教科文組織《急需保護的非物質文化遺產名錄》；2012年，閩浙兩省7縣其中有22座廊橋入選《中國世界文化遺產預備名單》。</p>
             <img class="placeholder" src="photo/1.4.png" alt="木拱橋傳統營造技藝">
@@ -229,7 +235,7 @@
         acupuncture: {
           title: "針灸",
           html: `
-            <p><strong>針灸</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>針灸</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <p>針灸是中醫的一種重要療法，為「針法」與「灸法」的統稱，透過針刺人體穴位或艾草燃燒的熱力刺激，以疏通經絡、調和氣血，進而治療疾病、促進健康。</p>
             <p><strong>針灸的原理與方法</strong></p>
             <ul>
@@ -243,7 +249,7 @@
         cantonopera: {
           title: "粵劇",
           html: `
-            <p><strong>粵劇</strong><img src="photo/文化安全.jpeg" alt="文化安全" style="height: 1em; vertical-align: middle; margin-left: 5px;"></p>
+            <p><strong>粵劇</strong><img class="culture-safe-icon" src="photo/文化安全.jpeg" alt="文化安全標誌"></p>
             <ul>
               <li><strong>起源地：</strong>廣東省（尤其以廣州、佛山為中心）</li>
               <li><strong>描述：</strong>流行於粵語地區，唱腔豐富、表演細膩的傳統戲曲藝術。</li>
@@ -410,4 +416,3 @@
   </script>
 </body>
 </html>
-

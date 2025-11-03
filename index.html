@@ -149,8 +149,8 @@
       .content {
         padding: 16px 8px;
       }
-      .culture-safe-icon {
-        height: 1.6em; /* 移动端稍小一点 */
+      .safe-icon {
+        height: 4.0em; /* 移动端稍小一点 */
       }
     }
   </style>
@@ -175,10 +175,54 @@
             <li><a class="sub-link" href="#heritage/cantonopera" data-subpage="cantonopera">粵劇</a></li>
           </ul>
         </li>
-        <li><a class="nav-link" href="#geography" data-page="geography">地勢特徵</a></li>
-        <li><a class="nav-link" href="#sights" data-page="sights">名勝地點</a></li>
-        <li><a class="nav-link" href="#bayarea" data-page="bayarea">大灣區發展</a></li>
-        <li><a class="nav-link" href="#ancients" data-page="ancients">古人</a></li>
+        <li>
+          <a class="nav-link" href="#geography" data-page="geography">地勢特徵</a>
+          <ul class="sub-list" style="display:none;" data-parent="geography">
+            <li><a class="sub-link" href="#geography/yellowRiver" data-subpage="yellowRiver">黃河</a></li>
+            <li><a class="sub-link" href="#geography/yangtzeRiver" data-subpage="yangtzeRiver">長江</a></li>
+            <li><a class="sub-link" href="#geography/pearlRiver" data-subpage="pearlRiver">珠江</a></li>
+            <li><a class="sub-link" href="#geography/mountains" data-subpage="mountains">山脈</a></li>
+            <li><a class="sub-link" href="#geography/basin" data-subpage="basin">盆地</a></li>
+            <li><a class="sub-link" href="#geography/plain" data-subpage="plain">平原</a></li>
+            <li><a class="sub-link" href="#geography/plateau" data-subpage="plateau">高原</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav-link" href="#sights" data-page="sights">名勝地點</a>
+          <ul class="sub-list" style="display:none;" data-parent="sights">
+            <li><a class="sub-link" href="#sights/hukouWaterfall" data-subpage="hukouWaterfall">黃河壺口瀑布</a></li>
+            <li><a class="sub-link" href="#sights/changbaishan" data-subpage="changbaishan">長白山天池</a></li>
+            <li><a class="sub-link" href="#sights/taklamakan" data-subpage="taklamakan">塔克拉瑪干沙漠</a></li>
+            <li><a class="sub-link" href="#sights/huangshan" data-subpage="huangshan">黃山</a></li>
+            <li><a class="sub-link" href="#sights/westLake" data-subpage="westLake">杭州西湖</a></li>
+            <li><a class="sub-link" href="#sights/forbiddenCity" data-subpage="forbiddenCity">故宮</a></li>
+            <li><a class="sub-link" href="#sights/summerPalace" data-subpage="summerPalace">頤和園</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav-link" href="#bayarea" data-page="bayarea">大灣區發展</a>
+          <ul class="sub-list" style="display:none;" data-parent="bayarea">
+            <li><a class="sub-link" href="#bayarea/infrastructure" data-subpage="infrastructure">基建奇蹟</a></li>
+            <li><a class="sub-link" href="#bayarea/innovation" data-subpage="innovation">科創新軸</a></li>
+            <li><a class="sub-link" href="#bayarea/culture" data-subpage="culture">文化交匯</a></li>
+            <li><a class="sub-link" href="#bayarea/ecology" data-subpage="ecology">生態資源</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav-link" href="#ancients" data-page="ancients">古人</a>
+          <ul class="sub-list" style="display:none;" data-parent="ancients">
+            <li><a class="sub-link" href="#ancients/confucius" data-subpage="confucius">孔子</a></li>
+            <li><a class="sub-link" href="#ancients/quyuan" data-subpage="quyuan">屈原</a></li>
+            <li><a class="sub-link" href="#ancients/linzexu" data-subpage="linzexu">林則徐</a></li>
+            <li><a class="sub-link" href="#ancients/qinshihuang" data-subpage="qinshihuang">秦始皇</a></li>
+            <li><a class="sub-link" href="#ancients/zhangqian" data-subpage="zhangqian">張騫</a></li>
+            <li><a class="sub-link" href="#ancients/yuefei" data-subpage="yuefei">岳飛</a></li>
+            <li><a class="sub-link" href="#ancients/bianque" data-subpage="bianque">扁鵲</a></li>
+            <li><a class="sub-link" href="#ancients/zhangzhongjing" data-subpage="zhangzhongjing">張仲景</a></li>
+            <li><a class="sub-link" href="#ancients/huatuo" data-subpage="huatuo">華佗</a></li>
+            <li><a class="sub-link" href="#ancients/lishizhen" data-subpage="lishizhen">李時珍</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <section class="content" id="main-content">
@@ -266,25 +310,317 @@
       geography: {
         main: {
           title: "地勢特徵",
-          html: `<p>這裡介紹中國的地形、地勢與自然環境特徵。內容待補充。</p>`
+          html: `<p>中國地形複雜多樣，高原、山地、丘陵、平原和盆地等地形類型齊全。請選擇左側子項目，了解詳細介紹。</p>`
+        },
+        yellowRiver: {
+          title: "黃河",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>發源於青海省巴顏喀拉山脈，流經青、川、甘、寧、內蒙古、陝、晉、豫、魯9省區。</li>
+              <li><strong>特徵：</strong>中國第二長河，中游流經黃土高原，含沙量極高，下游形成「地上河」。</li>
+            </ul>
+            <img class="placeholder" src="photo1/2.1.jpeg" alt="黃河">
+          `
+        },
+        yangtzeRiver: {
+          title: "長江",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>發源於青海唐古拉山脈，流經青、藏、川、滇、渝、鄂、湘、贛、皖、蘇、滬11省區。</li>
+              <li><strong>特徵：</strong>中國第一長河，航運發達，三峽段水力資源豐富，下游形成長江中下游平原。</li>
+            </ul>
+            <img class="placeholder" src="photo1/2.2.jpeg" alt="長江">
+          `
+        },
+        pearlRiver: {
+          title: "珠江",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>發源於雲南省烏蒙山區，流經滇、黔、桂、粵等省，主要流域在嶺南地區。</li>
+              <li><strong>特徵：</strong>華南最大水系，由西江、北江、東江匯流，航運價值高，水網密布。</li>
+            </ul>
+            <img class="placeholder" src="photo1/2.3.jpeg" alt="珠江">
+          `
+        },
+        mountains: {
+          title: "山脈",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>主要分布：</strong></li>
+              <ul>
+                <li>東西走向：天山（新疆）、崑崙山（新藏青）、秦嶺（陝甘豫）。</li>
+                <li>東北-西南走向：大興安嶺（黑吉內蒙古）、太行山（晉冀）、武夷山（閩贛）。</li>
+                <li>南北走向：橫斷山脈（川滇藏）。</li>
+              </ul>
+              <li><strong>特徵：</strong>構成中國地形骨架，分隔不同地理單元。</li>
+            </ul>
+            <img class="placeholder" src="photo1/2.4.jpeg" alt="山脈">
+          `
+        },
+        basin: {
+          title: "盆地",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>主要分布：</strong></li>
+              <ul>
+                <li>塔里木盆地（新疆南部）：中國最大內陸盆地，沙漠廣布。</li>
+                <li>四川盆地（四川、重慶）：紫色土壤肥沃，農業發達。</li>
+                <li>準噶爾盆地（新疆北部）：風蝕地貌顯著，蘊藏油氣資源。</li>
+              </ul>
+            </ul>
+            <img class="placeholder" src="photo1/2.5.jpeg" alt="盆地">
+          `
+        },
+        plain: {
+          title: "平原",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>主要分布：</strong></li>
+              <ul>
+                <li>東北平原（黑吉遼）：中國最大平原，黑土肥沃。</li>
+                <li>華北平原（京津冀魯豫）：黃河、海河沖積形成，人口密集。</li>
+                <li>長江中下游平原（鄂湘贛皖蘇）：河網縱橫，魚米之鄉。</li>
+              </ul>
+            </ul>
+            <img class="placeholder" src="photo1/2.6.jpeg" alt="平原">
+          `
+        },
+        plateau: {
+          title: "高原",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>主要分布：</strong></li>
+              <ul>
+                <li>青藏高原（青藏川滇）：世界最高高原（平均4,000米），「世界屋脊」。</li>
+                <li>黃土高原（陝晉甘寧）：覆蓋深厚黃土，溝壑縱橫，水土流失嚴重。</li>
+                <li>雲貴高原（雲貴）：喀斯特地貌發育，多溶洞、石林。</li>
+              </ul>
+            </ul>
+            <img class="placeholder" src="photo1/2.7.jpeg" alt="高原">
+          `
         }
       },
       sights: {
         main: {
           title: "名勝地點",
-          html: `<p>這裡介紹中國著名的名勝古蹟與風景名勝區。內容待補充。</p>`
+          html: `<p>中國擁有眾多世界知名的名勝古蹟和自然景觀，展現了中華文明的悠久歷史和豐富多彩的自然風光。請選擇左側子項目，了解詳細介紹。</p>`
+        },
+        hukouWaterfall: {
+          title: "黃河壺口瀑布",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>山西省臨汾市吉縣 & 陝西省延安市宜川縣（晉陝交界）</li>
+              <li><strong>特色：</strong>黃河唯一瀑布，汛期水流奔騰如「壺口傾瀉」，冬季冰掛如龍，怒吼聲震十里，有「黃河之心臟」之稱。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.1.jpeg" alt="黃河壺口瀑布">
+          `
+        },
+        changbaishan: {
+          title: "長白山天池",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>吉林省延邊朝鮮族自治州（中朝邊界，主峰屬中國）</li>
+              <li><strong>特色：</strong>休眠火山口湖，海拔2189米，中國最深湖泊（373米），藍如寶石，傳說中「水怪」增添神秘色彩。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.2.jpeg" alt="長白山天池">
+          `
+        },
+        taklamakan: {
+          title: "塔克拉瑪干沙漠",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>新疆塔里木盆地中心</li>
+              <li><strong>特色：</strong>中國最大沙漠（33萬平方公里），維語意「進去出不來」，流動沙丘佔85%，絲路古蹟埋藏沙海之下。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.3.jpeg" alt="塔克拉瑪干沙漠">
+          `
+        },
+        huangshan: {
+          title: "黃山",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>安徽省黃山市</li>
+              <li><strong>特色：</strong>世界雙遺產，「黃山歸來不看嶽」的奇松、怪石、雲海、溫泉「四絕」聞名，迎客松為文化符號。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.4.jpeg" alt="黃山">
+          `
+        },
+        westLake: {
+          title: "杭州西湖",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>浙江省杭州市區</li>
+              <li><strong>特色：</strong>中國首個文化景觀世界遺產，「淡妝濃抹總相宜」的古典湖山，白堤、蘇堤、雷峰塔等十景承載千年詩意。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.5.jpeg" alt="杭州西湖">
+          `
+        },
+        forbiddenCity: {
+          title: "故宮",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>北京市中軸線中心</li>
+              <li><strong>特色：</strong>明清兩代皇宮，世界最大木構建築群，980座殿宇藏180萬件文物，象徵東方帝王美學巔峰。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.6.jpeg" alt="故宮">
+          `
+        },
+        summerPalace: {
+          title: "頤和園",
+          html: `
+            <img class="safe-icon" src="photo1/資源安全.png" alt="資源安全標誌">
+            <ul>
+              <li><strong>位置：</strong>北京市海淀區西北郊</li>
+              <li><strong>特色：</strong>清代皇家園林，以杭州西湖為藍本建造，昆明湖占四分之三面積，長廊彩繪與石舫見證近代史風雲。</li>
+            </ul>
+            <img class="placeholder" src="photo1/3.7.jpeg" alt="頤和園">
+          `
         }
       },
       bayarea: {
         main: {
           title: "大灣區發展",
-          html: `<p>介紹粵港澳大灣區的發展現況與前景。內容待補充。</p>`
+          html: `<p>粵港澳大灣區是中國國家戰略，旨在建設世界級城市群和國際科技創新中心。請選擇左側子項目，了解詳細介紹。</p>`
+        },
+        infrastructure: {
+          title: "基建奇蹟",
+          html: `
+            <img class="safe-icon" src="photo1/經濟安全.png" alt="經濟安全標誌">
+            <p>港珠澳大橋、深中通道（世界首例超寬鋼殼混凝土沉管隧道）</p>
+            <img class="placeholder" src="photo1/4.1.jpeg" alt="大灣區發展">
+          `
+        },
+        innovation: {
+          title: "科創新軸",
+          html: `
+            <img class="safe-icon" src="photo1/人工智能安全.png" alt="人工智能安全標誌">
+            <p>廣深港澳科技創新走廊（廣州琶洲AI島→東莞松山湖→深圳光明科學城→香港河套區）</p>
+          `
+        },
+        culture: {
+          title: "文化交匯",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>香港中環摩天輪（現代） ✕ 佛山祖廟（傳統） ✕ 澳門大三巴（中西合璧）</p>
+          `
+        },
+        ecology: {
+          title: "生態資源",
+          html: `
+            <img class="safe-icon" src="photo1/生態安全.png" alt="生態安全標誌">
+            <p>珠海紅樹林濕地、惠州雙月灣珊瑚礁、肇慶西江珍稀鳥類棲息地</p>
+          `
         }
       },
       ancients: {
         main: {
           title: "古人",
-          html: `<p>介紹中國歷史上重要的歷史人物與其貢獻。內容待補充。</p>`
+          html: `<p>中國歷史悠久，湧現出許多對中華文明發展產生深遠影響的傑出人物。請選擇左側子項目，了解詳細介紹。</p>`
+        },
+        confucius: {
+          title: "孔子",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>孔子是中國春秋時期的思想家、教育家和政治家，被尊稱為「至聖先師」。他創立了儒家學派，強調仁、義、禮、智等道德價值，對中國文化和教育有深遠影響。他的著作《論語》記錄了他的言行和思想。</p>
+            <img class="placeholder" src="photo1/5.1.jpeg" alt="孔子">
+          `
+        },
+        quyuan: {
+          title: "屈原",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>屈原是中國戰國時期的詩人和政治家，為楚國貴族。他以愛國情懷著稱，作品《離騷》是中國古代詩歌的經典之一。屈原因不滿政治腐敗而投江自盡，後來被人民尊為愛國的象徵。</p>
+            <img class="placeholder" src="photo1/5.2.jpeg" alt="屈原">
+          `
+        },
+        linzexu: {
+          title: "林則徐",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>林則徐是清朝末年的官員和民族英雄，因其禁煙運動而聞名。他在1839年主導查禁鴉片，試圖減少社會問題，對抗外國勢力。林則徐的行動激發了中國的民族意識和反抗精神</p>
+            <img class="placeholder" src="photo1/5.3.jpeg" alt="林則徐">
+          `
+        },
+        qinshihuang: {
+          title: "秦始皇",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>秦始皇是中國第一位皇帝，統一了六國，建立了中央集權的秦朝。他推行一系列改革，包括統一度量衡、文字和貨幣，修建長城和陸上運輸網絡。他的統治方式在歷史上引起爭議。</p>
+            <img class="placeholder" src="photo1/5.4.jpeg" alt="秦始皇">
+          `
+        },
+        zhangqian: {
+          title: "張騫",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>張騫是西漢的探險家和外交官，他的出使西域促進了中國與中亞的交流。張騫的旅程為絲綢之路的開通奠定了基礎，並增進了中國與其他文化的互動。</p>
+            <img class="placeholder" src="photo1/5.5.jpeg" alt="張騫">
+          `
+        },
+        yuefei: {
+          title: "岳飛",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <p>岳飛是南宋的著名將領和民族英雄，以其忠誠和勇敢著稱。岳飛在抗擊金朝入侵中表現出色，他的詩作《滿江紅》流傳甚廣。因政治原因，岳飛被冤屈而死，後來被尊為民族的象徵。</p>
+            <img class="placeholder" src="photo1/5.6.jpeg" alt="岳飛">
+          `
+        },
+        bianque: {
+          title: "扁鵲",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <ul>
+              <li><strong>醫德實踐：</strong>扁鵲行醫不分貧富貴賤，無論身份地位都一視同仁。據《史記·扁鵲倉公列傳》記載，他曾對國君進言病情時謙遜誠懇，行醫先請示，遵守當時的禮法與社會規範。</li>
+              <li><strong>守禮表現：</strong>他行醫時總是恭敬謙和，診病也循序漸進，先望聞問切，遵循醫理而不妄下判斷。</li>
+            </ul>
+            <img class="placeholder" src="photo1/5.7.jpeg" alt="扁鵲">
+          `
+        },
+        zhangzhongjing: {
+          title: "張仲景",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <ul>
+              <li><strong>醫德實踐：</strong>在《傷寒雜病論》序言中，張仲景痛陳當時醫者草率治療導致親人喪命，強調醫者應該謹慎、勤學、守規，不能為名利而妄施醫術。</li>
+              <li><strong>守禮表現：</strong>他對師長尊敬，學術上謹慎考證，醫治時尊重患者，也不輕易誣診誤治，體現敬畏生命與法律的精神。</li>
+            </ul>
+            <img class="placeholder" src="photo1/5.8.jpeg" alt="張仲景">
+          `
+        },
+        huatuo: {
+          title: "華佗",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <ul>
+              <li><strong>醫德實踐：</strong>華佗不僅醫術高超，還堅守醫德。他不向權貴低頭，曹操曾逼他長期侍醫，他以家人有病為由婉拒，寧可坐牢也不違背醫德。</li>
+              <li><strong>守禮表現：</strong>拒絕被曹操專用，顯示他認為醫生應服務大眾而非個人，遵循職業道德、忠於職責，不為私利所動。</li>
+            </ul>
+            <img class="placeholder" src="photo1/5.9.jpeg" alt="華佗">
+          `
+        },
+        lishizhen: {
+          title: "李時珍",
+          html: `
+            <img class="safe-icon" src="photo1/文化安全.png" alt="文化安全標誌">
+            <ul>
+              <li><strong>醫德實踐：</strong>李時珍在《本草綱目》中批評前人錯誤，卻態度謙和，稱「敢不敬述而正之」，顯示他尊重傳統，又實事求是，堅守學術誠信。</li>
+              <li><strong>守禮表現：</strong>他親自走訪山林、農村，廣泛採集藥材，不畏艱辛，只為求證真知，體現醫者仁心、守職守法的精神。</li>
+            </ul>
+            <img class="placeholder" src="photo1/5.8.jpeg" alt="李時珍">
+          `
         }
       }
     };
@@ -421,7 +757,3 @@
   </script>
 </body>
 </html>
-
-
-
-
